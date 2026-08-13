@@ -2,6 +2,8 @@ package org.project;
 
 import org.project.model.Person;
 import org.project.repository.FormRepository;
+import org.project.repository.PersonRepository;
+
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -9,6 +11,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         FormRepository form = new FormRepository();
+        PersonRepository personRepository = new PersonRepository();
+
         List<String> questions = form.readForm( "src/data/form.txt");
 
         Scanner input = new Scanner(System.in);
@@ -24,7 +28,9 @@ public class Main {
         System.out.println(questions.get(3));
         double userHeight = input.nextDouble();
 
-        Person person1 = new Person(userName, userEmail, userAge, userHeight);
-        System.out.println(person1);
+        Person person = new Person(userName, userEmail, userAge, userHeight);
+        System.out.println(person);
+
+        personRepository.savePerson(person);
     }
 }
