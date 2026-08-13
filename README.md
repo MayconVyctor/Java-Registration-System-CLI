@@ -1,20 +1,18 @@
-# Java-Sistema-Cadastro-CLI
+# Java-Registration-System-CLI
 
 
-Projeto desenvolvido em Java como desafio prático para exercitar:
-
-- Orientação a Objetos
-- Java IO
+A project developed in Java as a practical challenge to practice:
+- Object-Oriented Programming
+- Java I/O
 - Collections
-- Streams e Lambda
-- Exceções
-- Boas práticas de código
+- Streams and Lambdas
+- Exception handling
+- Coding best practices
 
-## Sobre o projeto
-
-Aplicação CLI para cadastro e gerenciamento de usuários,
-utilizando arquivos `.txt` como forma de persistência dos dados.
+## About the project
+A CLI application for user registration and management,
+using `.txt` files for data persistence.
 
 ## Status
 
- Em desenvolvimento
+In development
