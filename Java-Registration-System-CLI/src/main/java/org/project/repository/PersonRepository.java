@@ -10,7 +10,9 @@ public class PersonRepository {
     public void savePerson(Person person) {
 
         String fileName = person.getName();
-        File filePath = new File("Java-Registration-System-CLI/src/data/users/" +fileName+ ".txt");
+        String customFileName = fileName.toUpperCase();
+        customFileName = customFileName.replace(" ", "");
+        File filePath = new File("Java-Registration-System-CLI/src/data/users/" +customFileName+ ".txt");
 
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(person.getName()+ "\n"+
