@@ -1,12 +1,12 @@
 package org.project.repository;
 
 import org.project.model.Person;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 public class PersonRepository {
@@ -39,5 +39,23 @@ public class PersonRepository {
             System.out.println("Ocorreu um erro ao gravar o arquivo: ");
             erro.printStackTrace();
         }
+    }
+
+    public List<String> findAll(){
+        // Code for finding all registered persons
+        List<String> personNames = new ArrayList<>();
+        FindFilesRepository findFilesRepository = new FindFilesRepository();
+        List<String> files = findFilesRepository.findFiles();
+
+        for (int i = 0; i < files.size(); i++) {
+            try (BufferedReader reader = new BufferedReader(new FileReader("Java-Registration-System-CLI/src/data/users/" + files.get(i)))) {
+                String personName = reader.readLine();
+                personNames.add(personName);
+            } catch (IOException erro) {
+                System.out.println("Ocorreu um erro ao ler o arquivo: ");
+                erro.printStackTrace();
+            }
+        }
+        return personNames;
     }
 }
