@@ -11,11 +11,12 @@ import java.util.Scanner;
 public class Menu {
     FormRepository form = new FormRepository();
     PersonRepository personRepository = new PersonRepository();
+    String formPath = "Java-Registration-System-CLI/src/data/form.txt";
 
     public static void menu() {
         Menu menu = new Menu();
 
-        List<String> questions = menu.form.readForm( "Java-Registration-System-CLI/src/data/form.txt");
+        List<String> questions = menu.form.readForm(menu.formPath);
 
         Scanner input = new Scanner(System.in);
         Locale localeBrasil = new Locale("pt", "BR");
@@ -36,7 +37,8 @@ public class Menu {
             option = input.nextInt();
             switch (option) {
                 case 1:
-                    input.nextLine(); // Consume the newline character
+                    input.nextLine();
+
                     System.out.println(questions.get(0));
                     String userName = input.nextLine();
                     System.out.println(questions.get(1));
@@ -59,7 +61,11 @@ public class Menu {
                     }
                     break;
                 case 3:
-                    // Code for registering a new question in the form
+                    System.out.printf("Enter the new question to add to the form: ");
+                    input.nextLine();
+                    menu.form.addQuestion(input.nextLine(), menu.formPath);
+                    System.out.println("Question added successfully!");
+                    menu.form.readForm(menu.formPath);
                     break;
                 case 4:
                     // Code for deleting a question from the form
