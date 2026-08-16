@@ -5,6 +5,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
+import java.util.Optional;
+
 
 public class PersonRepository {
     public void savePerson(Person person) {
@@ -12,7 +15,20 @@ public class PersonRepository {
         String fileName = person.getName();
         String customFileName = fileName.toUpperCase();
         customFileName = customFileName.replace(" ", "");
-        File filePath = new File("Java-Registration-System-CLI/src/data/users/" +customFileName+ ".txt");
+
+        FindFilesRepository findFilesRepository= new FindFilesRepository();
+        List<String> files = findFilesRepository.findFiles();
+        Optional<Integer> largestFileNumber= files.stream()
+                .map(file -> file.split("-"))
+                .map(file -> file[0] )
+                .map(file -> Integer.parseInt(file))
+                .max(Integer::compareTo);
+
+        int largestNumber = largestFileNumber.orElse(0);
+        int fileNumber = largestNumber + 1;
+
+
+        File filePath = new File("Java-Registration-System-CLI/src/data/users/" +fileNumber+ "-" +customFileName+ ".txt");
 
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(person.getName()+ "\n"+

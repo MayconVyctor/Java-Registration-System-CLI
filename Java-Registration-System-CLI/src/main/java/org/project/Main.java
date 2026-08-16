@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FormRepository form = new FormRepository();
         PersonRepository personRepository = new PersonRepository();
-        FindFilesRepository findFilesRepository= new FindFilesRepository();
+
 
         List<String> questions = form.readForm( "Java-Registration-System-CLI/src/data/form.txt");
 
@@ -36,9 +36,6 @@ public class Main {
         System.out.println(person);
 
         personRepository.savePerson(person);
-        List<String> files = findFilesRepository.findFiles();
-
-        System.out.println(files);
 
     }
 }
