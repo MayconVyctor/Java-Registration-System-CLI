@@ -29,6 +29,7 @@ public class FormRepository {
 
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(formPath, true))) {
             writer.write(numberQuestion + " - " + question );
+            writer.newLine();
 
         } catch (IOException erro) {
             System.out.println("Ocorreu um erro ao gravar o arquivo: ");
