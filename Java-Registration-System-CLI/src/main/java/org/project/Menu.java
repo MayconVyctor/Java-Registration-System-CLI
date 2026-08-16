@@ -39,19 +39,14 @@ public class Menu {
                 case 1:
                     input.nextLine();
 
-                    System.out.println(questions.get(0));
-                    String userName = input.nextLine();
-                    System.out.println(questions.get(1));
-                    String userEmail = input.nextLine();
-                    System.out.println(questions.get(2));
-                    int userAge = input.nextInt();
-                    System.out.println(questions.get(3));
-                    double userHeight = input.nextDouble();
+                    for (String question : questions) {
+                        System.out.println(question);
+                    }
 
-                    Person person = new Person(userName, userEmail, userAge, userHeight);
-                    System.out.println(person);
+                    //Person person = new Person(userName, userEmail, userAge, userHeight);
+                    //System.out.println(person);
 
-                    menu.personRepository.savePerson(person);
+                    //menu.personRepository.savePerson(person);
                     break;
                 case 2:
                     List<String> registeredPersons = menu.personRepository.findAll();
@@ -63,7 +58,8 @@ public class Menu {
                 case 3:
                     System.out.printf("Enter the new question to add to the form: ");
                     input.nextLine();
-                    menu.form.addQuestion(input.nextLine(), menu.formPath);
+                    String newQuestion = input.nextLine();
+                    menu.form.addQuestion(newQuestion, menu.formPath);
                     System.out.println("Question added successfully!");
                     menu.form.readForm(menu.formPath);
                     break;
