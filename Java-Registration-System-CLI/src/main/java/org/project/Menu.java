@@ -24,7 +24,7 @@ public class Menu {
         int option = -1;
 
         while (option != 0) {
-            System.out.println("Welcome to the Registration System!");
+            System.out.println("\nWelcome to the Registration System!");
             System.out.println("Please select an option:");
             System.out.println("1. Register a new person");
             System.out.println("2. List all registered persons");
@@ -53,9 +53,9 @@ public class Menu {
                     break;
                 case 2:
                     List<String> registeredPersons = menu.personRepository.findAll();
-                    System.out.println("Registered persons:");
-                    for (String personName : registeredPersons) {
-                        System.out.println(personName);
+                    System.out.println("\nRegistered persons:");
+                    for (int i = 0; i < registeredPersons.size(); i++) {
+                        System.out.println((i + 1) + "- " + registeredPersons.get(i));
                     }
                     break;
                 case 3:
