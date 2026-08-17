@@ -2,4 +2,4 @@
 2 - What is your contact email?
 3 - What is your age?
 4 - What is your height?
-5 -  What is your favorite game?
+5 - What is your favorite game?

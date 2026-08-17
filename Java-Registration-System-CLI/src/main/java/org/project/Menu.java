@@ -83,7 +83,19 @@ public class Menu {
                     questions = menu.form.readForm(menu.formPath);
                     break;
                 case 4:
-                    // Code for deleting a question from the form
+                    System.out.println("Which question do you want to delete?");
+                    questions = menu.form.readForm(menu.formPath);
+                    for (int i = 0; i <questions.size(); i++) {
+                        System.out.println(questions.get(i));
+                    }
+                    int questionNumber = input.nextInt();
+                    boolean deleteQuestion = menu.form.deleteQuestion(questionNumber, menu.formPath);
+                    if (deleteQuestion == true){
+                        System.out.println("Question successfully deleted.");
+                    }else {
+                        System.out.println("This question cannot be excluded.");
+                    }
+
                     break;
                 case 5:
                     System.out.println("1- Search by name");

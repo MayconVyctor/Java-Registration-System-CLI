@@ -36,4 +36,31 @@ public class FormRepository {
             erro.printStackTrace();
         }
     }
+
+    public boolean deleteQuestion(int questionNumber, String formPath ){
+        FormRepository formRepository = new FormRepository();
+        List<String> questions = formRepository.readForm(formPath);
+
+        if (questionNumber > 4) {
+            questions.remove(questionNumber - 1);
+            for (int i = 0; i < questions.size(); i++){
+               String[] questionsParts = questions.get(i).split("-");
+               int newQuestionNumber = i + 1;
+               String newQuestion = newQuestionNumber+ " - " + questionsParts[1];
+               questions.set(i, newQuestion);
+
+                try(BufferedWriter writer = new BufferedWriter(new FileWriter(formPath))) {
+                    for (String question : questions){
+                        writer.write(question);
+                        writer.newLine();
+                    }
+                    return true;
+                } catch (IOException erro) {
+                    System.out.println("Ocorreu um erro ao gravar o arquivo: ");
+                    erro.printStackTrace();
+                }
+            }
+        }
+        return false;
+    }
 }
