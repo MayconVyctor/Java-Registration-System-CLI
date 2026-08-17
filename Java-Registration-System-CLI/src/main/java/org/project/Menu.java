@@ -75,7 +75,7 @@ public class Menu {
                     }
                     break;
                 case 3:
-                    System.out.printf("Enter the new question to add to the form: ");
+                    System.out.println("Enter the new question to add to the form: ");
                     input.nextLine();
                     String newQuestion = input.nextLine();
                     menu.form.addQuestion(newQuestion, menu.formPath);
@@ -86,13 +86,47 @@ public class Menu {
                     // Code for deleting a question from the form
                     break;
                 case 5:
-                    // Code for searching for a person by name or age or email
+                    System.out.println("1- Search by name");
+                    System.out.println("2- Search by email");
+                    System.out.println("3- Search by age");
+                    int search = input.nextInt();
+                    if(search == 1){
+                        input.nextLine();
+                        System.out.println("Whats the person name?");
+                        String name = input.nextLine();
+                        List<String> nameSearch = menu.personRepository.findUserByName(name);
+                        System.out.println("\n People found:");
+                        for (int i = 0; i <nameSearch.size(); i++) {
+                            System.out.println((i + 1) + "- " + nameSearch.get(i));
+                        }
+                    }
+                    if (search == 2){
+                        input.nextLine();
+                        System.out.println("Whats the person email?");
+                        String email = input.nextLine();
+                        List<String> emailSearch = menu.personRepository.findUserByEmail(email);
+                        System.out.println("\n People found:");
+                        for (int i = 0; i <emailSearch.size(); i++) {
+                            System.out.println((i + 1) + "- " + emailSearch.get(i));
+                        }
+                    }
+                    if (search == 3){
+                        input.nextLine();
+                        System.out.println("Whats the person age?");
+                        int age = input.nextInt();
+                        List<String> ageSearch = menu.personRepository.findUserByAge(age);
+                        System.out.println("\n People found:");
+                        for (int i = 0; i <ageSearch.size(); i++) {
+                            System.out.println((i + 1) + "- " + ageSearch.get(i));
+                        }
+                    }
+
                     break;
                 case 0:
-                    System.out.println("Exiting the program. Goodbye!");
+                    System.out.println("Exiting the program. Goodbye");
                     break;
                 default:
-                    System.out.println("Invalid option. Please try again.");
+                    System.out.println("Invalid option, Please try again");
                     break;
             }
         }
