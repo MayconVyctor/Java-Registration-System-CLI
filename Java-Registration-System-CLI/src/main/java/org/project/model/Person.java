@@ -1,16 +1,21 @@
 package org.project.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Person {
     private String name;
     private String email;
     private int age;
     private double height;
+    private Map<String, String> additionalAnswers = new HashMap<>();
 
-    public Person(String name, String email, int age, double height) {
+    public Person(String name, String email, int age, double height, Map<String, String> additionalAnswers) {
         this.name = name;
         this.email = email;
         this.age = age;
         this.height = height;
+        this.additionalAnswers = additionalAnswers;
     }
 
     public String getName() {
@@ -19,6 +24,10 @@ public class Person {
 
     public String getEmail() {
         return email;
+    }
+
+    public Map<String, String> getAdditionalAnswers() {
+        return additionalAnswers;
     }
 
     public int getAge() {
@@ -34,6 +43,7 @@ public class Person {
         return  "\n" + name + "\n" +
                 email + "\n"+
                 age + "\n" +
-                height;
+                height + "\n" +
+                String.join(", ", additionalAnswers.values());
     }
 }
