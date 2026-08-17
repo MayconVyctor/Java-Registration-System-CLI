@@ -50,6 +50,7 @@ public class PersonRepository {
         for (int i = 0; i < files.size(); i++) {
             try (BufferedReader reader = new BufferedReader(new FileReader("Java-Registration-System-CLI/src/data/users/" + files.get(i)))) {
                 String personName = reader.readLine();
+
                 personNames.add(personName);
             } catch (IOException erro) {
                 System.out.println("Ocorreu um erro ao ler o arquivo: ");

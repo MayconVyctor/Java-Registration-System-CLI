@@ -17,6 +17,11 @@ public class FindFilesRepository {
         Path path = Paths.get("Java-Registration-System-CLI/src/data/users");
         try (Stream<Path> flow = Files.list(path)) {
             fileNames = flow
+           .sorted((file1, file2) -> {
+                int f1 = Integer.parseInt(file1.getFileName().toString().split("-")[0]);
+                int f2 = Integer.parseInt(file2.getFileName().toString().split("-")[0]);
+                return Integer.compare(f1, f2);
+            })
             .map(file -> file.getFileName().toString())
             .collect(Collectors.toList());
         } catch (IOException e) {
