@@ -1,5 +1,6 @@
 package org.project.service;
 
+import org.project.InvalidPersonException;
 import org.project.model.Person;
 import org.project.repository.PersonRepository;
 
@@ -7,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PersonService {
-    PersonRepository personRepository = new PersonRepository();
+    private final PersonRepository personRepository = new PersonRepository();
 
     public Person createPerson( Map<String, String> answers){
 
@@ -28,11 +29,42 @@ public class PersonService {
                 additionalAnswers.put(question, answer);
             }
         }
+
+        validatePerson(userName,userEmail,userAge,userHeight);
         return new Person(userName, userEmail, userAge, userHeight,additionalAnswers);
     }
     public Person registerPerson(Map<String, String> answers){
         Person person = createPerson(answers);
         personRepository.savePerson(person);
         return person;
+    }
+
+    private void validatePerson(String userName,String userEmail, int userAge,double userHeight){
+        if (userAge <=0){
+            throw new InvalidPersonException("Age cannot be 0 or negative");
+        }
+
+        if (userName == null){
+            throw new InvalidPersonException("The name cannot be empty.");
+
+        } else {
+            String userNameConverted = userName.strip();
+            if (userNameConverted.isEmpty()) {
+                throw new InvalidPersonException("The name cannot be empty.");
+            }
+        }
+
+        if (userEmail == null){
+            throw new InvalidPersonException("The email cannot be empty.");
+        }else {
+            String userEmailConverted = userEmail.strip();
+            if (userEmailConverted.isEmpty()) {
+                throw new InvalidPersonException("The email  cannot be empty.");
+            }
+        }
+
+        if (userHeight <= 0){
+            throw new InvalidPersonException("Height cannot be 0 or negative");
+        }
     }
 }

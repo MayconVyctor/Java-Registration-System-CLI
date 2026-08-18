@@ -37,19 +37,25 @@ public class Menu {
             option = input.nextInt();
             switch (option) {
                 case 1:
-                    input.nextLine();
-                    Map<String, String> answers = new HashMap<>();
-                    for (String question : questions) {
-                        System.out.println(question);
-                        String answer = input.nextLine();
+                    try {
+                        input.nextLine();
+                        Map<String, String> answers = new HashMap<>();
+                        for (String question : questions) {
+                            System.out.println(question);
+                            String answer = input.nextLine();
 
-                        answers.put(question, answer);
+                            answers.put(question, answer);
+                        }
+
+                        Person person = menu.personService.registerPerson(answers);
+
+                        System.out.println("Person registered successfully!");
+                        System.out.println(person);
+                    }catch (InvalidPersonException exception){
+                        System.out.println("It was not possible to complete the registration " + exception.getMessage());
+                    } catch (NumberFormatException exception) {
+                        System.out.printf("Please enter a valid number");
                     }
-
-                    Person person = menu.personService.registerPerson(answers);
-
-                    System.out.println("Person registered successfully!");
-                    System.out.println(person);
                     break;
                 case 2:
                     List<String> registeredPersons = menu.personRepository.findAll();
