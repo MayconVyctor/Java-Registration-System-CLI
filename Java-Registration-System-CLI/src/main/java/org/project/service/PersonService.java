@@ -1,6 +1,6 @@
 package org.project.service;
 
-import org.project.InvalidPersonException;
+import org.project.exception.InvalidPersonException;
 import org.project.model.Person;
 import org.project.repository.PersonRepository;
 

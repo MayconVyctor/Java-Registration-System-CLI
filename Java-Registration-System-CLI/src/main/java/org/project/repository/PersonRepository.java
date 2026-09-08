@@ -36,7 +36,7 @@ public class PersonRepository {
                              person.getAge()+ "\n"+
                              person.getHeight());
         } catch (IOException erro) {
-            System.out.println("Ocorreu um erro ao gravar o arquivo: ");
+            System.out.println("Happened a error in recording the file: ");
             erro.printStackTrace();
         }
     }
@@ -53,7 +53,7 @@ public class PersonRepository {
 
                 personNames.add(personName);
             } catch (IOException erro) {
-                System.out.println("Ocorreu um erro ao ler o arquivo: ");
+                System.out.println("Happened a error in reading the file: ");
                 erro.printStackTrace();
             }
         }
@@ -70,7 +70,7 @@ public class PersonRepository {
                 if (personName.equalsIgnoreCase(name))
                     userNames.add(personName);
             } catch (IOException erro) {
-                System.out.println("Ocorreu um erro ao ler o arquivo: ");
+                System.out.println("Happened a error in reading the file: ");
                 erro.printStackTrace();
             }
         }
@@ -91,7 +91,7 @@ public class PersonRepository {
                 if (personEmail.equalsIgnoreCase(email))
                     userByEmails.add(personName);
             } catch (IOException erro) {
-                System.out.println("Ocorreu um erro ao ler o arquivo: ");
+                System.out.println("Happened a error in reading the file: ");
                 erro.printStackTrace();
             }
         }
@@ -112,7 +112,7 @@ public class PersonRepository {
                 if (personAge == (age))
                     userByAge.add(personName);
             } catch (IOException erro) {
-                System.out.println("Ocorreu um erro ao ler o arquivo: ");
+                System.out.println("Happened a error in reading the file: ");
                 erro.printStackTrace();
             }
         }

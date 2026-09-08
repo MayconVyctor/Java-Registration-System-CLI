@@ -43,24 +43,24 @@ public class FormRepository {
 
         if (questionNumber > 4) {
             questions.remove(questionNumber - 1);
+
             for (int i = 0; i < questions.size(); i++){
                String[] questionsParts = questions.get(i).split("-");
                int newQuestionNumber = i + 1;
                String newQuestion = newQuestionNumber+ " - " + questionsParts[1];
                questions.set(i, newQuestion);
-
-                try(BufferedWriter writer = new BufferedWriter(new FileWriter(formPath))) {
+            }
+            try(BufferedWriter writer = new BufferedWriter(new FileWriter(formPath))) {
                     for (String question : questions){
                         writer.write(question);
                         writer.newLine();
                     }
                     return true;
                 } catch (IOException erro) {
-                    System.out.println("Ocorreu um erro ao gravar o arquivo: ");
+                    System.out.println("Happened a error in recording the file: ");
                     erro.printStackTrace();
                 }
             }
-        }
         return false;
     }
 }
