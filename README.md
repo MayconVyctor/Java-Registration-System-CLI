@@ -13,6 +13,4 @@ A project developed in Java as a practical challenge to practice:
 A CLI application for user registration and management,
 using `.txt` files for data persistence.
 
-## Status
 
-In development
