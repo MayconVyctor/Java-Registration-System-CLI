@@ -5,6 +5,7 @@ import org.project.model.Person;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -67,8 +68,9 @@ public class PersonRepository {
         for (int i = 0; i < files.size(); i++) {
             try (BufferedReader reader = new BufferedReader(new FileReader("Java-Registration-System-CLI/src/data/users/" + files.get(i)))) {
                 String personName = reader.readLine();
-                if (personName.equalsIgnoreCase(name))
+                if (personName.toLowerCase().contains(name.toLowerCase())) {
                     userNames.add(personName);
+                }
             } catch (IOException erro) {
                 System.out.println("Happened a error in reading the file: ");
                 erro.printStackTrace();
@@ -116,7 +118,6 @@ public class PersonRepository {
                 erro.printStackTrace();
             }
         }
-
         return userByAge;
     }
 }
