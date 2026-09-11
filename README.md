@@ -1,16 +1,15 @@
-# Java-Registration-System-CLI
+# Java Registration System CLI
 
+A command-line application developed in Java for registering and managing people.
 
-A project developed in Java as a practical challenge to practice:
-- Object-Oriented Programming
-- Java I/O
-- Collections
-- Streams and Lambdas
-- Exception handling
-- Coding best practices
+## Features
 
-## About the project
-A CLI application for user registration and management,
-using `.txt` files for data persistence.
-
-
+- Register a new person
+- List registered people
+- Search people by name
+- Search people by email
+- Search people by age
+- Add questions to the registration form
+- Delete questions from the form
+- Validate person data with custom exceptions
+- Persist data using text files
