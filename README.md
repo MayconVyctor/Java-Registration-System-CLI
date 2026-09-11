@@ -25,13 +25,14 @@ A command-line application developed in Java for registering and managing people
 
 ## Project Structure
 
-text
+```text
 src/
 ├── exception/
 ├── model/
 ├── repository/
 ├── service/
 └── Menu.java
+```
 
 ## How it works
 
