@@ -25,10 +25,20 @@ A command-line application developed in Java for registering and managing people
 
 ## Project Structure
 
-```text
+text
 src/
 ├── exception/
 ├── model/
 ├── repository/
 ├── service/
 └── Menu.java
+
+## How it works
+
+The application uses a command-line menu to interact with the user.
+
+Person registration follows the flow:
+
+Menu → PersonService → PersonRepository → File
+
+The `PersonService` is responsible for creating and validating `Person` objects, while the repository handles file persistence.
