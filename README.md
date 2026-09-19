@@ -1,45 +1,55 @@
 # Java Registration System CLI
 
-A command-line application developed in Java for registering and managing people.
+Sistema de cadastro desenvolvido em Java para praticar conceitos fundamentais da linguagem, Programação Orientada a Objetos, Collections, Streams, tratamento de exceções e persistência de dados em arquivos.
 
-## Features
+O projeto possui uma interface de linha de comando (CLI) que permite cadastrar, listar e pesquisar pessoas, além de possibilitar a criação e remoção de perguntas do formulário de cadastro.
 
-- Register a new person
-- List registered people
-- Search people by name
-- Search people by email
-- Search people by age
-- Add questions to the registration form
-- Delete questions from the form
-- Validate person data with custom exceptions
-- Persist data using text files
+## Funcionalidades
 
-## Technologies
+- Cadastrar uma nova pessoa
+- Listar pessoas cadastradas
+- Pesquisar pessoas por nome
+- Pesquisar pessoas por e-mail
+- Pesquisar pessoas por idade
+- Adicionar novas perguntas ao formulário de cadastro
+- Remover perguntas do formulário
+- Validar dados utilizando exceções personalizadas
+- Persistir os dados em arquivos `.txt`
+- Gerar automaticamente a numeração dos arquivos de cadastro
 
-- Java
-- Java Collections
-- File I/O
-- Exception Handling
-- Streams
-- Object-Oriented Programming
+## Tecnologias e conceitos
 
-## Project Structure
+- **Java**
+- **Programação Orientada a Objetos (POO)**
+- **Java Collections**
+  - `List`
+  - `Map`
+  - `HashMap`
+- **Streams e Optional**
+- **File I/O**
+  - `FileReader`
+  - `FileWriter`
+  - `BufferedReader`
+  - `BufferedWriter`
+  - `Path` e `Files`
+- **Tratamento de exceções**
+- **Exceções personalizadas**
+- **Lambda expressions**
+- **Scanner**
+- **Git e GitHub**
+
+## Estrutura do projeto
 
 ```text
 src/
 ├── exception/
+│   └── InvalidPersonException.java
 ├── model/
+│   └── Person.java
 ├── repository/
+│   ├── FindFilesRepository.java
+│   ├── FormRepository.java
+│   └── PersonRepository.java
 ├── service/
+│   └── PersonService.java
 └── Menu.java
-```
-
-## How it works
-
-The application uses a command-line menu to interact with the user.
-
-Person registration follows the flow:
-
-Menu → PersonService → PersonRepository → File
-
-The `PersonService` is responsible for creating and validating `Person` objects, while the repository handles file persistence.
